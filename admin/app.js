@@ -9,9 +9,6 @@
 
 const store = {
   topics: [
-    { id: 'tech-skills', title: 'Technical Skills' },
-    { id: 'career-dev', title: 'Career Development' },
-    { id: 'behavioral', title: 'Behavioural Interview Prep' },
     { id: 'tech-interview', title: 'Technical Interview Prep' }
   ],
 
