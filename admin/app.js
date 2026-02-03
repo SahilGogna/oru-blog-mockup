@@ -61,6 +61,17 @@ const store = {
       moduleId: 'sql-joins',
       title: 'Visual Guide to SQL Joins',
       description: 'Comprehensive article with diagrams explaining INNER, LEFT, RIGHT, and FULL joins',
+      content: `SQL joins are fundamental to working with relational databases. This guide covers:
+
+• **INNER JOIN**: Returns only rows that have matching values in both tables. Use when you need data that exists in both tables.
+
+• **LEFT JOIN**: Returns all rows from the left table, plus matched rows from the right table. NULL values appear where there's no match.
+
+• **RIGHT JOIN**: Returns all rows from the right table, plus matched rows from the left table. Less common but useful for specific queries.
+
+• **FULL OUTER JOIN**: Returns all rows when there's a match in either table. Great for finding gaps in data relationships.
+
+Practice these joins with the exercises below to master data relationships in SQL.`,
       type: 'article',
       linkUrl: 'https://example.com/sql-joins-guide',
       createdAt: new Date('2026-01-21').getTime()
@@ -80,6 +91,27 @@ const store = {
       moduleId: 'sql-optimization',
       title: '10 SQL Performance Tips',
       description: 'Practical tips to improve your SQL query performance',
+      content: `Boost your SQL query performance with these proven optimization techniques:
+
+1. **Use indexes strategically** - Create indexes on columns frequently used in WHERE, JOIN, and ORDER BY clauses.
+
+2. **Avoid SELECT *** - Only retrieve the columns you actually need to reduce data transfer.
+
+3. **Use EXPLAIN ANALYZE** - Understand your query execution plan to identify bottlenecks.
+
+4. **Optimize JOIN order** - Place smaller tables first and use appropriate join types.
+
+5. **Limit result sets** - Use LIMIT and pagination for large datasets.
+
+6. **Avoid functions on indexed columns** - WHERE YEAR(date_col) = 2026 prevents index usage.
+
+7. **Use EXISTS instead of IN** - For subqueries checking existence, EXISTS is often faster.
+
+8. **Batch your operations** - Insert/update in batches rather than row-by-row.
+
+9. **Consider query caching** - Cache frequently-run queries at the application level.
+
+10. **Monitor and profile regularly** - Use database monitoring tools to catch slow queries early.`,
       type: 'article',
       linkUrl: 'https://example.com/sql-performance-tips',
       createdAt: new Date('2026-01-27').getTime()
@@ -1246,7 +1278,7 @@ function renderPublicModuleDetailView() {
               </button>
               <div id="article-${index}-content" class="hidden px-5 pb-4 pt-0">
                 <div class="ml-13 border-l-2 border-gray-100 pl-4">
-                  <p class="text-gray-600">${article.description}</p>
+                  <div class="text-gray-600 whitespace-pre-line">${article.content || article.description}</div>
                 </div>
               </div>
             </div>
